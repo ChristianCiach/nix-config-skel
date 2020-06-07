@@ -10,8 +10,13 @@
   hardware.pulseaudio.enable = true;
 
   environment.systemPackages = [
-	  pkgs.vlc
-  ];
+	pkgs.vlc
+	( pkgs.wine.override { 
+		wineRelease = "unstable"; 
+		openglSupport = true;
+		pulseaudioSupport = true;
+	} )
+
 
 
 }
